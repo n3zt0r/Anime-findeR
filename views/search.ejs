@@ -1,0 +1,62 @@
+<div id="search-result">
+    <div id="search-animes">
+        <% let count=0; %>
+        <% search.forEach(element=> { %>
+            <form action="/anime" method="post">
+                <input type="hidden" name="animeID" value="<%= search[count].mal_id %>">
+                <button type="submit" title="<%= search[count].title %>">
+                    <img src="<%= search[count].images.jpg.image_url %>" alt="anime image">
+                    <h3>
+                        <%= search[count].title %>
+                    </h3>
+                </button>
+            </form>
+            <% count++; %>
+        <% }); %>
+    </div>
+
+    <div id="search-pages">
+        
+        <% 
+            currentPage = Number(currentPage);
+            let counter = ((currentPage - 5) < 1) ? 1 : currentPage - 4;
+            let maxPages = ((currentPage + 4) > pages) ? pages : counter + 9;
+        %>
+
+        <form action="/search" method="post">
+            <input type="hidden" name="search" value="<%= anime %>">
+            <input type="hidden" name="page" value="<%= currentPage - 1 %>">
+            <% if (currentPage === 1) { %>
+                <p class="disabled"> < </p>
+            <% } else { %>
+                <button type="submit"> < </button>
+            <% } %>
+        </form>
+        
+        <% for (let index = counter; index <= maxPages; index++) { %>
+            <form action="/search" method="post">
+                <input type="hidden" name="search" value="<%= anime %>">
+                <input type="hidden" name="page" value="<%= index %>">
+                <% if (currentPage === index) { %>
+                    <p> <%= index %> </p>
+                <% } else { %>
+                    <button type="submit">
+                        <%= index %>
+                    </button>
+                <% } %>
+                
+            </form>
+        <% } %>
+
+        <form action="/search" method="post">
+            <input type="hidden" name="search" value="<%= anime %>">
+            <input type="hidden" name="page" value="<%= currentPage + 1 %>">
+            <% if (currentPage === pages) { %>
+                <p> > </p>
+            <% } else { %>
+                <button type="submit"> > </button>
+            <% } %>
+        </form>
+
+    </div>
+</div>

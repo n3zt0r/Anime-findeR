@@ -1,0 +1,21 @@
+<%- include("header.ejs") %>
+
+    <% if (locals.search) { %>
+        <% if (search == 0) { %>
+            <div class="container">
+                <h1>Anime not found</h1>
+            </div>
+        <% } else { %>
+            <%- include("search.ejs") %>
+        <% } %>
+    <% } else if (locals.content) { %>
+        <%- include("anime.ejs") %>
+    <% } else { %>
+        <div class="container">
+            <form id="random-form" action="/random" method="post">
+                <input id="random" type="submit" value="Random Anime">
+            </form>
+        </div>
+    <% } %>
+
+<%- include("footer.ejs") %>

@@ -1,0 +1,270 @@
+:root {
+    --main-bg-color: #FEB237;
+    --second-bg-color: #cc8e2b;
+    --third-bg-color: #213132;
+    --main-color: #619394;
+    --second-color: #FFF;
+    --third-color: #CCC;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+input[type="submit"], 
+button {
+    cursor: pointer;
+}
+
+header,
+nav form,
+footer,
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header, footer {
+    background: var(--main-bg-color);
+    width: 100vw;
+}
+
+header img {
+    margin: 20px;
+    width: 450px;
+}
+
+nav form {
+    margin-bottom: 20px;
+    width: 100vw;
+}
+
+#search,
+#search-btn {
+    border-radius: 5px;
+    border: none;
+    height: 40px;
+}
+
+#search {
+    width: 50%;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#search:focus {
+    background-color: var(--second-bg-color);
+    outline: none;
+    color: var(--second-color);
+}
+
+#search:focus::placeholder {
+    color: var(--main-bg-color);
+}
+
+#search-btn {
+    width: 100px;
+    font-size: 1.25rem;
+}
+
+#search-btn:hover {
+    background-color: var(--second-bg-color);
+    color: var(--second-color);
+}
+
+.container {
+    background-color: var(--third-bg-color);
+    width: 100%;
+    height: 80dvh;
+    font-size: 3rem;
+    color: var(--third-color);
+}
+
+#random {
+    background-color: var(--second-bg-color);
+    color: var(--second-color);
+    border: none;
+    border-radius: 20px;
+    width: 300px;
+    height: 75px;
+    font-size: 2rem;
+}
+
+#random:hover {
+    font-style: italic;
+}
+
+#search-result,
+#anime {
+    background-color: var(--third-bg-color);
+    color: var(--second-color);
+    padding: 50px;
+    min-height: 80dvh;
+}
+
+#search-result {
+    display: flex;
+    flex-direction: column;
+}
+
+#search-animes,
+#search-pages {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#search-animes button {
+    background-color: var(--second-bg-color);
+    border: none;
+    border-radius: 5px;
+    width: 220px;
+    margin: 15px;
+    transition: transform 0.5s;
+}
+
+#search-animes button:hover {
+    background-color: var(--third-bg-color);
+    color: var(--third-color);
+    transform: scale(1.25) rotate3d(1, 2, 3, -5deg);
+    box-shadow: 1px 1px 20px 10px var(--main-bg-color);
+}
+
+#search-animes img {
+    width: 100%;
+    height: 330px;
+    border-radius: 5px 5px 0 0 ;
+}
+#search-animes h3 {
+    margin: 5px;
+}
+
+#search-pages button,
+#search-pages p {
+    font-size: 1.25rem;
+    margin: 10px;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+#search-pages button {
+    border: none;
+    background-color: transparent;
+    color: var(--main-bg-color);
+    text-decoration: underline;
+}
+
+#search-pages button:hover {
+    background-color: var(--main-bg-color);
+    color: var(--second-color);
+    border-radius: 50%;
+}
+
+#search-pages p {
+    color: var(--third-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#anime {
+    display: grid;
+    grid-template: 
+        "head head" auto
+        "foot nav" auto
+        "foot main" auto
+        / auto 3fr;
+    gap: 20px;
+}
+
+#anime-title,
+#anime-image,
+#anime-data,
+#anime-synopsis {
+    background-color: var(--second-bg-color);
+    border-radius: 5px;
+    padding: 15px;
+    list-style: none;
+}
+
+#anime-title {
+    grid-area: head;
+    font-size: 2rem;
+}
+
+#anime-title h3 {
+    color: var(--third-color);
+    font-size: 1.5rem;
+}
+
+#anime-image {
+    grid-area: foot;
+}
+
+#anime-data {
+    grid-area: nav;
+    color: var(--third-color);
+}
+
+#anime-data span {
+    font-size: 1.25rem;
+    color: var(--second-color);
+}
+
+#anime-synopsis {
+    grid-area: main;
+    font-size: 1.25rem;
+}
+
+footer {
+    height: 90px;
+    font-style: italic;
+}
+
+footer p {
+    margin: 5px;
+    font-size: 1rem;
+    color: var(--second-color);
+}
+
+footer a {
+    text-decoration: none;
+    font-size: 1.15rem;
+    color: var(--second-color);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 460px) {
+
+    header img {
+        width: 300px;
+    }
+
+    #search {
+        width: 80%;
+    }
+
+    #anime {
+        display: flex;
+        flex-direction: column;
+    }
+}

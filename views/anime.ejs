@@ -1,0 +1,26 @@
+<div class="anime" id="anime">
+
+    <div id="anime-title">
+        <h2> <%= content.title %> </h2>
+        <h3> <%= content.title_synonyms %> </h3>
+    </div>
+
+    <img src="<%= content.images.jpg.image_url %>" alt="anime image" id="anime-image">
+
+    <ul id="anime-data">
+        <li>Type: <span> <%= content.type %> </span> </li>
+        <li>No. of episodes: <span> <%= content.episodes %> </span> </li>
+        <li>Status: <span> <%= content.status %> </span> </li>
+        <li>Aired: <span> <%= content.aired.string %> </span> </li>
+        <li>Duration: <span> <%= content.duration %> </span> </li>
+        <li>Rating: <span> <%= content.rating %> </span> </li>
+        <li>Genres: <% content.genres.forEach(element => { %> 
+            <span> <%= element.name %>, </span> 
+        <% }); %>
+        </li>
+    </ul>
+
+    <% content.synopsis = (content.synopsis === null) ? "No description" : content.synopsis; %>
+    <p id="anime-synopsis"> <%= content.synopsis %> </p>
+
+</div>
